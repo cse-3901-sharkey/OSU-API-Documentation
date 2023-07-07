@@ -1,11 +1,11 @@
 # Class API Specification
 
 ## API Endpoint
-The API endpoint as of April 19, 2016 is https://content.osu.edu/v2/classes/
+The API endpoint as of July 6, 2023 is https://content.osu.edu/v2/classes/
 
 ## Searching for Classes
 
-#### Query
+### Query
 Searches for classes can be requested by appending the word 'search', and specifying the search query as a URL-encoded parameter labeled as 'q'. For example:
 ```
 https://content.osu.edu/v2/classes/search?q=Software
@@ -13,15 +13,101 @@ https://content.osu.edu/v2/classes/search?q=Software
 searches for all classes associated with the term "Software"
 
 The app advertises that is possible to query classes using:
-- Academic Program
-- Building
-- Campus
-- Course Title
-- Description
-- Instructor
-- Subject
+  - Academic Term
+  - Academic Career
+  - Academic Program
+  - Campus
+  - Catalog #
+  - Component
+  - Day/Night
+  - Instruction Mode
 
-#### Sample Response
+Valid Parameters:
+
+  - q=  Search String
+  - term=  Academic Term
+  - campus=  Campus
+  - academic-career=  Undergrad, Grad, etc
+  - catalog-number=  1xxx, 2xxx, etc.
+  - component=  Independent Study, etc.
+  - subject=  Academic Program
+  - instruction-mode=  Distance Learning, etc.
+  - evening=  Day or Night
+  - page(p)=  Page # (increments of 200)
+
+Returns max of 200 items/call... use p= to switch 'pages'
+
+Parameters appear to be case-sensitive...
+
+#### Term Values:
+  - 1222 = Spring 2022
+  - 1228 = Autumn 2022
+  - 1232 = Spring 2023
+  - 1234 = Summer 2023
+  - 1238 = Autumn 2023
+  - 1242 = Spring 2023
+
+#### Campus Values:
+  - col = Columbus
+  - lma = Lima
+  - mns = Mansfield
+  - mrn = Marion
+  - nwk = Newark
+  - wst = Wooster
+
+#### Academic Career Values:
+  - ugrad = Undergraduate
+  - grad = Graduate
+  - PHP = Pharmacy
+  - LAW = Law
+  - VMED = Veterinary Medicine
+  - OPT = Optometry
+  - MED = Medicine
+  - DENT = Dentistry
+
+#### Academic Program Values (subject):
+  - eng = Engineering
+  - ASC = Arts and Sciences
+  - BUS = Business
+  - EHE = Education & Human Ecology
+  - AGR = Food, Agric & Environ Science
+  - HRS = Health & Rehabilitation Sci
+  - PHR = Pharmacy
+  - PBH = Public Health
+  - SWK = Social Work
+  - MED = The College of Medicine
+
+#### Catalog Number Values:
+  - 1xxx
+  - 2xxx
+  - 3xxx
+  - 4xxx
+  - 5xxx
+  - 6xxx
+  - 7xxx
+  - 8xxx
+
+#### Component Values:
+  - ind = Independent Study
+  - lab = Laboratory
+  - lec = Lecture
+  - REC = Recitation
+  - SEM = Seminar
+  - FLD = Field Experience
+  - WRK = Workshop
+  - CLN = Clinical
+
+#### Day/Evening Values:
+  - Daytime = Daytime
+  - Evening = Evening
+
+#### Instruction Mode Values:
+  - dh = Distance Enhanced
+  - dl = Distance Learning
+  - hy = Hybrid Delivery
+  - p = In Person
+
+### Sample Response
 _Ellipses mark possible repetition_
 ```json
 {
