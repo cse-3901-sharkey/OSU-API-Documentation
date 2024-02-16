@@ -1,14 +1,14 @@
 # Class API Specification
 
 ## API Endpoint
-The API endpoint as of July 6, 2023 is https://content.osu.edu/v2/classes/
+The API endpoint as of Feb 16, 2024 is https://contenttest.osu.edu/v2/classes/search/
 
 ## Searching for Classes
 
 ### Query
 Searches for classes can be requested by appending the word 'search', and specifying the search query as a URL-encoded parameter labeled as 'q'. For example:
 ```
-https://content.osu.edu/v2/classes/search?q=Software
+https://contenttest.osu.edu/v2/classes/search?q=Software
 ```
 searches for all classes associated with the term "Software"
 
@@ -24,7 +24,7 @@ The app advertises that is possible to query classes using:
 
 Valid Parameters:
 
-  - q=  Search String
+  - q=   (can be blank, or cse for CSE Classes)
   - term=  Academic Term
   - campus=  Campus
   - academic-career=  Undergrad, Grad, etc
@@ -34,6 +34,8 @@ Valid Parameters:
   - instruction-mode=  Distance Learning, etc.
   - evening=  Day or Night
   - page(p)=  Page # (increments of 200)
+  - client=class-search-ui
+  - class-attribute=ge2
 
 Returns max of 200 items/call... use p= to switch 'pages'
 
@@ -46,6 +48,7 @@ Parameters appear to be case-sensitive...
   - 1234 = Summer 2023
   - 1238 = Autumn 2023
   - 1242 = Spring 2023
+  - 1244 = Summer 2024
 
 #### Campus Values:
   - col = Columbus
