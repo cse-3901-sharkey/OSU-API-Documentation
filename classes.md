@@ -47,8 +47,9 @@ Parameters appear to be case-sensitive...
   - 1232 = Spring 2023
   - 1234 = Summer 2023
   - 1238 = Autumn 2023
-  - 1242 = Spring 2023
+  - 1242 = Spring 2024
   - 1244 = Summer 2024
+  - 1248 = Autumn 2024
 
 #### Campus Values:
   - col = Columbus
